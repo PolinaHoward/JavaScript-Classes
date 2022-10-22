@@ -30,29 +30,6 @@
     ],
     knownSkills: ['Java', 'Manual testing', 'Js basics', 'Programming', 'CS basics']
 }
-
-/*
-    name : John Doe
-    state : NJ
-    age : 20
-    gender : M
-    paymentMethod : finance
-    anyExperience : true
-    pastJobs : Yes (3)
-        companyName : ABC
-        numOfYears : 2
-        title : 'DEF'
-
-        companyName : EFG
-        numOfYears : 3
-        title : 'HIJ'
-        
-        companyName : KLM
-        numOfYears : 4
-        title : 'NOP'
-    knownSkills : 5 (Java, Manual testing, Js basics, Programming, CS basics)
-*/
-
 let student1_2 = {
     name : 'Eli hen',
     state : 'NY',
@@ -63,18 +40,65 @@ let student1_2 = {
     pastJobs : [],
     knownSkills: ['Java', 'Manual testing', 'CS basics']
 }
-/*
-    name : Eli hen
-    state : NY
-    age : 22
-    gender : F
-    paymentMethod : Paid
-    anyExperience : false
-    pastJobs : No
-    knownSkills : 3 (Java, Manual testing, CS basics)
-*/
+for (exp in student1_1){
+    if (exp !== 'pastJobs' && exp !== 'knownSkills'){
+        console.log( ` ${exp} : ${student1_1[exp]}`)
+    }else if (exp == 'pastJobs'){
+        let pastJobsStatus = ''
+                if (student1_1.anyExperience){
+                    pastJobsStatus=   `Yes(${student1_1[exp].length})`
+                }else{
+                    pastJobsStatus = 'No'
+                }
+                console.log( `${exp} : ${pastJobsStatus}`)
+                for ( prop of student1_1[exp]){
+                    for(jobExp in prop){
+                        console.log(`\t${jobExp} : ${prop[jobExp]}`)
+                    }
+
+                }
+    }else{ 
+        let knownSkillsStatus = '';
+        if (student1_1.knownSkills  ){
+            knownSkillsStatus =  `${student1_1.knownSkills.length} (${student1_1[exp]})`
+           }  
+            console.log(`${exp} : ${knownSkillsStatus}`)
+        
+    }
+}
 
 
+console.log(`Break between the codes`)
+
+
+for (exp in student1_2){
+    if (exp !== 'pastJobs' && exp !== 'knownSkills'){
+        console.log( ` ${exp} : ${student1_2[exp]}`)
+    }else if (exp == 'pastJobs'){
+        let pastJobsStatus = ''
+                if (student1_2.anyExperience){
+                    pastJobsStatus=   `Yes(${student1_2[exp].length})`
+                }else{
+                    pastJobsStatus = 'No'
+                }
+                console.log( `${exp} : ${pastJobsStatus}`)
+                for ( prop of student1_2[exp]){
+                    for(jobExp in prop){
+                        console.log(`\t${jobExp} : ${prop[jobExp]}`)
+                    }
+
+                }
+    }else{ 
+        let knownSkillsStatus = '';
+        if (student1_2.knownSkills  ){
+            knownSkillsStatus =  `${student1_2.knownSkills.length} (${student1_2[exp]})`
+           }  
+            console.log(`${exp} : ${knownSkillsStatus}`)
+        
+    }
+}
+
+console.log(`==========================================================`)
 
 /**
  * Q2: Print the index for SECOND occurrence of 'baseBalL' (Ignoring cases)
@@ -118,6 +142,7 @@ for( let i = 0 ; i < favSports_3.length ; i++){
 
  }
  
+ console.log(`=================================================`)
 
 
 /**
@@ -174,7 +199,7 @@ let student3_2 = {
 function ex(student)
 {   let sum = 0 
     let name = student.name
-    if (student.anyExperience == true){
+    if ((student.anyExperience) ){
         for (let i = 0; i < student.pastJobs.length; i++){
             sum+= student.pastJobs[i].numOfYears
         }
